@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zip Code project</title>
+    <title>Busca CEP</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <body>
     <header class="nav-container">
         <nav class="nav-main">
-            <h1>ZIP CODE</h1>
+            <h1>Busca CEP</h1>
             <div class="contact-link">Contato</div>
         </nav>
     </header>
@@ -40,6 +40,7 @@
                         type="text"
                         placeholder="Logradouro"
                         disabled>
+                        <div class="error-message" data-error="street"></div>
                     </div>
                     <div class="form-control">
                         <label for="number">Numero</label>
@@ -71,11 +72,6 @@
 
         </section>
         <section id="list-section" class="list-container">
-            <div class="card-list-item">
-                <h3>São Paulo</h3>
-                <p class="address-line">Rua das Flores, 720</p>
-                <p class="address-cep">12312-231</p>
-            </div>
         </section>
     </main>
 

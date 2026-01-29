@@ -13,6 +13,7 @@ function State(){
     this.inputCity = null;
 
     this.errorCep = null;
+    this.errorStreet = null;
     this.errorNumber = null;
 }
 const state = new State();
@@ -27,10 +28,13 @@ export function init(){
     state.btnClear = document.forms.newAddress.btnClear;
 
     state.errorCep = document.querySelector('[data-error="cep"]');
+    state.errorStreet = document.querySelector('[data-error="street"]');
     state.errorNumber = document.querySelector('[data-error="number"]');
 
     state.inputNumber.addEventListener('change',handleInputNumberChange);
     state.inputNumber.addEventListener('keyup',handleInputNumberKeyup);
+    state.inputStreet.addEventListener('keyup',handleInputStreetKeyup);
+    state.inputStreet.addEventListener('change',handleInputStreetChange);
     state.btnClear.addEventListener('click',handleBtnClearClick);
     state.btnSave.addEventListener('click',handleBtnSaveClick);
     state.inputCep.addEventListener('change',handleInputCepChange);
@@ -39,6 +43,10 @@ export function init(){
 
 function handleInputNumberKeyup(event){
     state.address.number = event.target.value;
+}
+
+function handleInputStreetKeyup(event){
+    state.address.street = event.target.value;
 }
 
 async function handleInputCepChange(event) {
@@ -51,10 +59,21 @@ async function handleInputCepChange(event) {
         state.address = address;
 
         setFormError("cep","");
-        state.inputNumber.focus();
+        
+        // Habilita o campo de rua se estiver vazio
+        if(address.street === "" || address.street === null){
+            state.inputStreet.disabled = false;
+            state.inputStreet.focus();
+        } else {
+            state.inputStreet.disabled = true;
+            state.inputNumber.focus();
+        }
+        
+        console.log(address);
     }catch(e){
         state.inputStreet.value = "";
         state.inputCity.value = "";
+        state.inputStreet.disabled = true;
         setFormError("cep","Informe um CEP válido");
     }
 }
@@ -85,6 +104,14 @@ function handleInputNumberChange(event){
     }
 }
 
+function handleInputStreetChange(event){
+    if (event.target.value == ""){
+        setFormError("street","Campo requerido");
+    }else{
+        setFormError("street", "");
+    }
+}
+
 
 function handleBtnClearClick(event){
     event.preventDefault();
@@ -96,6 +123,7 @@ function clearForm(){
     state.inputCity.value = "";
     state.inputNumber.value = "";
     state.inputStreet.value = "";
+    state.inputStreet.disabled = true;
 
     setFormError("cep","");
     setFormError("number","");

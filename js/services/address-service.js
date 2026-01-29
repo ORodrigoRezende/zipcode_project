@@ -15,6 +15,9 @@ export function getErrors(address){
     if(!address.cep || address.cep == ""){
         errors.cep = "Campo requerido";
     }
+    if(!address.street || address.street == ""){
+        errors.street = "Campo requerido";
+    }
     if(!address.number || address.number == ""){
         errors.number = "Campo requerido";
     }
