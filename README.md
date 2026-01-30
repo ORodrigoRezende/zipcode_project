@@ -1,17 +1,10 @@
-# Busca CEP - Projeto de Estudo JavaScript
+# Busca CEP
 
-Um projeto simples desenvolvido com HTML, CSS e JavaScript puro para aprender conceitos fundamentais da linguagem e como integrar APIs externas.
+Aplicação desenvolvida para consulta de endereços brasileiros utilizando a API ViaCEP. O objetivo deste projeto foi aplicar conceitos de JavaScript assíncrono e organização de código baseada em módulos.
 
 ![Busca CEP](./img/img1.png)
 
-## Objetivo
-
-Criar uma aplicação prática para estudar e praticar:
-- Manipulação do DOM
-- Tratamento de eventos
-- Programação assíncrona (fetch)
-- Validação de dados
-- Organização de código com módulos ES6
+---
 
 ## Funcionalidades
 
@@ -22,6 +15,8 @@ Criar uma aplicação prática para estudar e praticar:
 - Listagem dos endereços salvos
 - Design responsivo
 
+---
+
 ## Tecnologias
 
 - HTML5
@@ -29,62 +24,21 @@ Criar uma aplicação prática para estudar e praticar:
 - JavaScript ES6
 - API ViaCEP
 
-## Estrutura do Projeto
+---
 
-```
-zipcode_project/
-├── index.html
-├── README.md
-├── css/
-│   ├── styles.css
-│   └── modal.css
-└── js/
-    ├── zipcode.js
-    ├── controllers/
-    │   ├── form-controller.js
-    │   ├── list-controller.js
-    │   ├── modal-controller.js
-    │   └── page-controller.js
-    ├── models/
-    │   └── address.js
-    └── services/
-        ├── address-service.js
-        ├── request-service.js
-        └── exceptions/
-            └── request-exception.js
-```
+## Estrutura do código
 
-## Como Usar
-
-1. Abra o arquivo `index.html` no navegador
-2. Digite um CEP válido (ex: 01310100)
-3. A rua e cidade serão preenchidas automaticamente
-4. Digite o número do endereço
-5. Clique em "Salvar" para adicionar à lista
-
-## Aprendizados
-
-Neste projeto foram colocados em prática conceitos como:
-
-- **Seleção de elementos**: Usando querySelector e propriedades de formulário
-- **Event listeners**: Capturando eventos de input e click
-- **Fetch API**: Requisições HTTP assincronas com async/await
-- **Modularização**: Separação de código em módulos ES6
-- **Validação**: Verificação de campos obrigatórios
-- **DOM manipulation**: Criação e atualização de elementos
-
-## Próximos Passos
-
-Possíveis melhorias para o projeto:
-- Salvar endereços em LocalStorage
-- Adicionar testes
-- Melhorar validação de CEP
-- Adicionar mais campos de endereço
-
-## Contato
-
-rezendeeesilva@gmail.com
+* **Controllers**: Gerenciam a captura de eventos, manipulação do DOM e a lógica de exibição das telas.
+* **Services**: Contêm a lógica de negócio, como a validação de dados e as requisições HTTP.
+* **Models**: Define a estrutura do objeto de endereço utilizado em toda a aplicação.
+* **Styles**: Estilização modularizada, separando o CSS geral dos componentes específicos como o modal.
 
 ---
 
-Projeto desenvolvido como estudo de JavaScript.
+## Como Rodar
+
+Para visualizar o projeto localmente, é necessário utilizar um servidor local (como a extensão Live Server do VS Code) devido ao uso de módulos JavaScript.
+
+1. Faça o download ou clone do repositório.
+2. Inicie o servidor local a partir do arquivo `index.html`.
+3. Digite um CEP válido para testar a busca.
